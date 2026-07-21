@@ -69,6 +69,7 @@ export interface ProgerChartCardProps {
 	eixoDispGeracao: number[];
 	usinasMontantes?: ProgerUsinaMontante[];
 	alertasRestricoesPainel?: AlertasRestricoesPainel;
+	onsPainel?: boolean;
 	publicado?: boolean;
 	miniLoading?: boolean;
 	onUsinaClick?: (usina: UsinaResumo) => void;
@@ -211,6 +212,7 @@ export function ProgerChartCard({
 	eixoDispGeracao,
 	usinasMontantes = [],
 	alertasRestricoesPainel,
+	onsPainel,
 	publicado,
 	onUsinaClick,
 }: ProgerChartCardProps) {
@@ -320,30 +322,49 @@ export function ProgerChartCard({
 					}}
 				>
 					{alertasRestricoesPainel?.nivel?.length ? (
-						<span title={alertasRestricoesPainel.nivel.map(a => a.descricao).join("\n")} style={{ color: "red", cursor: "help" }}>
+						<span
+							title={alertasRestricoesPainel.nivel
+								.map((a) => a.descricao)
+								.join("\n")}
+							style={{ color: "red", cursor: "help" }}
+						>
 							<Pill size={18} />
 						</span>
 					) : (
-						<span style={{ color: "transparent" }}><Pill size={18} /></span>
+						<span style={{ color: "transparent" }}>
+							<Pill size={18} />
+						</span>
 					)}
 					{alertasRestricoesPainel?.geracao?.length ? (
-						<span title={alertasRestricoesPainel.geracao.map(a => a.descricao).join("\n")} style={{ color: "red", cursor: "help" }}>
+						<span
+							title={alertasRestricoesPainel.geracao
+								.map((a) => a.descricao)
+								.join("\n")}
+							style={{ color: "red", cursor: "help" }}
+						>
 							<Zap size={18} />
 						</span>
 					) : (
-						<span style={{ color: "transparent" }}><Zap size={18} /></span>
+						<span style={{ color: "transparent" }}>
+							<Zap size={18} />
+						</span>
 					)}
 					{alertasRestricoesPainel?.hidrico?.length ? (
-						<span title={alertasRestricoesPainel.hidrico.map(a => a.descricao).join("\n")} style={{ color: "red", cursor: "help" }}>
+						<span
+							title={alertasRestricoesPainel.hidrico
+								.map((a) => a.descricao)
+								.join("\n")}
+							style={{ color: "red", cursor: "help" }}
+						>
 							<Droplets size={18} />
 						</span>
 					) : (
-						<span style={{ color: "transparent" }}><Droplets size={18} /></span>
+						<span style={{ color: "transparent" }}>
+							<Droplets size={18} />
+						</span>
 					)}
 					<div style={{ fontSize: 10 }}>
-						<span style={{ color: "transparent" }}>
-							ONS
-						</span>
+						<span style={{ color: onsPainel ? "red" : "transparent" }}>ONS</span>
 					</div>
 					{publicado && (
 						<div

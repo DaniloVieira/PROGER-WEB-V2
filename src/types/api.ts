@@ -79,6 +79,7 @@ export interface DadosPainelResponse {
 	eixoNivelRes?: number[];
 	eixoDispGeracao?: number[];
 	alertasRestricoesPainel?: AlertasRestricoesPainel;
+	onsPainel?: boolean;
 }
 
 export interface ProgramacaoDados {
