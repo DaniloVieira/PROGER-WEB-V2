@@ -61,12 +61,24 @@ export interface DadosPainelItem {
 	dadosVerificados: boolean;
 }
 
+export interface AlertaRestricaoItem {
+	cdTpRestricao: number;
+	descricao: string;
+}
+
+export interface AlertasRestricoesPainel {
+	geracao: AlertaRestricaoItem[];
+	hidrico: AlertaRestricaoItem[];
+	nivel: AlertaRestricaoItem[];
+}
+
 export interface DadosPainelResponse {
 	cdUsina: string;
 	dados: DadosPainelItem[];
 	eixoVazaoGeracao?: number[];
 	eixoNivelRes?: number[];
 	eixoDispGeracao?: number[];
+	alertasRestricoesPainel?: AlertasRestricoesPainel;
 }
 
 export interface ProgramacaoDados {

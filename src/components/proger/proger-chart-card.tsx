@@ -14,7 +14,7 @@ import {
 	Text,
 } from "recharts";
 import { Pill, Zap, Droplets, Check } from "lucide-react";
-import type { UsinaResumo } from "@/types/api";
+import type { UsinaResumo, AlertasRestricoesPainel } from "@/types/api";
 
 // ─── ColorsDefault (hard-coded from legacy PROGER 2) ───────────────────────
 
@@ -68,13 +68,7 @@ export interface ProgerChartCardProps {
 	eixoNivelRes: number[];
 	eixoDispGeracao: number[];
 	usinasMontantes?: ProgerUsinaMontante[];
-	alertasUsina?: {
-		prescriptionBottle?: boolean;
-		bolt?: boolean;
-		tint?: boolean;
-		/* ONS visibility badge */
-		onsPainel?: boolean;
-	};
+	alertasRestricoesPainel?: AlertasRestricoesPainel;
 	publicado?: boolean;
 	miniLoading?: boolean;
 	onUsinaClick?: (usina: UsinaResumo) => void;
@@ -216,7 +210,7 @@ export function ProgerChartCard({
 	eixoNivelRes,
 	eixoDispGeracao,
 	usinasMontantes = [],
-	alertasUsina = {},
+	alertasRestricoesPainel,
 	publicado,
 	onUsinaClick,
 }: ProgerChartCardProps) {
@@ -325,33 +319,29 @@ export function ProgerChartCard({
 						alignItems: "center",
 					}}
 				>
-					<span
-						style={{
-							color: alertasUsina.prescriptionBottle ? "red" : "transparent",
-						}}
-					>
-						<Pill size={18} />
-					</span>
-					<span
-						style={{
-							color: alertasUsina.bolt ? "red" : "transparent",
-						}}
-					>
-						<Zap size={18} />
-					</span>
-					<span
-						style={{
-							color: alertasUsina.tint ? "red" : "transparent",
-						}}
-					>
-						<Droplets size={18} />
-					</span>
+					{alertasRestricoesPainel?.nivel?.length ? (
+						<span title={alertasRestricoesPainel.nivel.map(a => a.descricao).join("\n")} style={{ color: "red", cursor: "help" }}>
+							<Pill size={18} />
+						</span>
+					) : (
+						<span style={{ color: "transparent" }}><Pill size={18} /></span>
+					)}
+					{alertasRestricoesPainel?.geracao?.length ? (
+						<span title={alertasRestricoesPainel.geracao.map(a => a.descricao).join("\n")} style={{ color: "red", cursor: "help" }}>
+							<Zap size={18} />
+						</span>
+					) : (
+						<span style={{ color: "transparent" }}><Zap size={18} /></span>
+					)}
+					{alertasRestricoesPainel?.hidrico?.length ? (
+						<span title={alertasRestricoesPainel.hidrico.map(a => a.descricao).join("\n")} style={{ color: "red", cursor: "help" }}>
+							<Droplets size={18} />
+						</span>
+					) : (
+						<span style={{ color: "transparent" }}><Droplets size={18} /></span>
+					)}
 					<div style={{ fontSize: 10 }}>
-						<span
-							style={{
-								color: alertasUsina.onsPainel ? "red" : "transparent",
-							}}
-						>
+						<span style={{ color: "transparent" }}>
 							ONS
 						</span>
 					</div>

@@ -108,6 +108,7 @@ export function DashboardPage() {
 				eixoVazaoGeracao,
 				eixoNivelRes,
 				eixoDispGeracao,
+				alertasRestricoesPainel: apiResponse?.alertasRestricoesPainel,
 			};
 		});
 	}, [usinas, historicoQueries]);
@@ -188,6 +189,7 @@ export function DashboardPage() {
 								eixoVazaoGeracao={item.eixoVazaoGeracao}
 								eixoNivelRes={item.eixoNivelRes}
 								eixoDispGeracao={item.eixoDispGeracao}
+								alertasRestricoesPainel={item.alertasRestricoesPainel}
 								onUsinaClick={(u) =>
 									addTab({
 										id: `usina-${u.cdUsina}`,
