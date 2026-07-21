@@ -14,6 +14,7 @@ import {
 	Text,
 } from "recharts";
 import { Pill, Zap, Droplets, Check } from "lucide-react";
+import { ProgerTooltip } from "./proger-tooltip";
 import type { UsinaResumo, AlertasRestricoesPainel } from "@/types/api";
 
 // ─── ColorsDefault (hard-coded from legacy PROGER 2) ───────────────────────
@@ -322,49 +323,57 @@ export function ProgerChartCard({
 					}}
 				>
 					{alertasRestricoesPainel?.nivel?.length ? (
-						<span
-							title={alertasRestricoesPainel.nivel
+						<ProgerTooltip
+							content={alertasRestricoesPainel.nivel
 								.map((a) => a.descricao)
 								.join("\n")}
-							style={{ color: "red", cursor: "help" }}
+							position="top"
 						>
-							<Pill size={18} />
-						</span>
+							<span style={{ color: "red", cursor: "help" }}>
+								<Pill size={18} />
+							</span>
+						</ProgerTooltip>
 					) : (
 						<span style={{ color: "transparent" }}>
 							<Pill size={18} />
 						</span>
 					)}
 					{alertasRestricoesPainel?.geracao?.length ? (
-						<span
-							title={alertasRestricoesPainel.geracao
+						<ProgerTooltip
+							content={alertasRestricoesPainel.geracao
 								.map((a) => a.descricao)
 								.join("\n")}
-							style={{ color: "red", cursor: "help" }}
+							position="top"
 						>
-							<Zap size={18} />
-						</span>
+							<span style={{ color: "red", cursor: "help" }}>
+								<Zap size={18} />
+							</span>
+						</ProgerTooltip>
 					) : (
 						<span style={{ color: "transparent" }}>
 							<Zap size={18} />
 						</span>
 					)}
 					{alertasRestricoesPainel?.hidrico?.length ? (
-						<span
-							title={alertasRestricoesPainel.hidrico
+						<ProgerTooltip
+							content={alertasRestricoesPainel.hidrico
 								.map((a) => a.descricao)
 								.join("\n")}
-							style={{ color: "red", cursor: "help" }}
+							position="top"
 						>
-							<Droplets size={18} />
-						</span>
+							<span style={{ color: "red", cursor: "help" }}>
+								<Droplets size={18} />
+							</span>
+						</ProgerTooltip>
 					) : (
 						<span style={{ color: "transparent" }}>
 							<Droplets size={18} />
 						</span>
 					)}
 					<div style={{ fontSize: 10 }}>
-						<span style={{ color: onsPainel ? "red" : "transparent" }}>ONS</span>
+						<span style={{ color: onsPainel ? "red" : "transparent" }}>
+							ONS
+						</span>
 					</div>
 					{publicado && (
 						<div

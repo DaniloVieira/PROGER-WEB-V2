@@ -82,8 +82,6 @@ export function DashboardPage() {
 			);
 		};
 
-		console.log("usinasComDados", usinas, historicoQueries);
-
 		return usinas.map((usina, index) => {
 			const historico = historicoQueries[index]?.data?.dados ?? [];
 			const dadosGrafico = mapearHistoricoParaChart(historico, date);
