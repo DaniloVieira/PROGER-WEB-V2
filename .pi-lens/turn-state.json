@@ -1,0 +1,268 @@
+{
+  "files": {
+    "src/lib/config.ts": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 11
+        }
+      ],
+      "importsChanged": false,
+      "lastEdit": "2026-06-28T12:15:02.650Z"
+    },
+    "src/lib/api.ts": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 36
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:02.709Z"
+    },
+    "src/services/api.ts": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 111
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:02.767Z"
+    },
+    "src/stores/auth.ts": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 33
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:02.820Z"
+    },
+    "src/stores/tabs.ts": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 93
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:02.886Z"
+    },
+    "src/stores/notifications.ts": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 68
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:02.941Z"
+    },
+    "src/hooks/use-notifications.ts": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 81
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:02.997Z"
+    },
+    "src/hooks/use-require-auth.ts": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 27
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.051Z"
+    },
+    "src/components/providers.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 26
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.117Z"
+    },
+    "src/components/tabs/tab-shell.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 124
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.181Z"
+    },
+    "src/components/layout/app-header.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 129
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.246Z"
+    },
+    "src/components/layout/main-layout.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 38
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.308Z"
+    },
+    "src/components/dashboard/dashboard-page.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 156
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.368Z"
+    },
+    "src/lib/date-utils.ts": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 28
+        }
+      ],
+      "importsChanged": false,
+      "lastEdit": "2026-06-28T12:15:03.415Z"
+    },
+    "src/components/auth/login-page.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 168
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.477Z"
+    },
+    "src/components/grid/proger-grid.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 181
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.537Z"
+    },
+    "src/app/layout.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 20
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.593Z"
+    },
+    "src/app/page.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 6
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.644Z"
+    },
+    "src/app/(auth)/login/page.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 13
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.710Z"
+    },
+    "src/app/(main)/layout.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 17
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.764Z"
+    },
+    "src/app/(main)/dashboard/page.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 8
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.814Z"
+    },
+    "src/app/(main)/programacao/[cdUsina]/page.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 106
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.874Z"
+    },
+    "src/app/(main)/configuracoes/page.tsx": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 41
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:03.929Z"
+    },
+    "next.config.mjs": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 10
+        }
+      ],
+      "importsChanged": false,
+      "lastEdit": "2026-06-28T12:15:03.979Z"
+    },
+    "tailwind.config.ts": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 58
+        }
+      ],
+      "importsChanged": true,
+      "lastEdit": "2026-06-28T12:15:05.549Z"
+    },
+    "src/types/api.ts": {
+      "modifiedRanges": [
+        {
+          "start": 1,
+          "end": 84
+        }
+      ],
+      "importsChanged": false,
+      "lastEdit": "2026-06-28T12:15:02.596Z"
+    }
+  },
+  "turnCycles": 0,
+  "maxCycles": 3,
+  "lastUpdated": "2026-06-28T12:15:05.549Z",
+  "sessionId": "lens-mqwbk4z2-e6639e04"
+}
