@@ -93,3 +93,34 @@
 .animate-appear-from-right {
   animation: appearFromRight 1s ease-out;
 }
+
+/* ─── Custom Scrollbar (global, dark theme) ───────────────────────────────── */
+
+/* WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0f12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2e;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3e;
+}
+
+::-webkit-scrollbar-corner {
+  background: #0d0f12;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a2e #0d0f12;
+}
