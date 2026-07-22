@@ -10,6 +10,8 @@ import type {
 	Produtibilidade,
 	DashboardAgregado,
 	DadosPainelResponse,
+	CalcularHidraulicoRequest,
+	CalcularHidraulicoResponse,
 } from "@/types/api";
 
 // ─── Auth ────────────────────────────────────────────────────────────────────
@@ -45,18 +47,38 @@ export async function listProgramacoes(
 }
 
 export async function getProgramacaoDados(
-	id: number,
+	cdProgramacao: number,
 	params?: Record<string, unknown>,
 ): Promise<ProgramacaoDados> {
 	const { data } = await api.get<ProgramacaoDados>(
-		`/programacoes/${id}/dados`,
+		`/programacoes/${cdProgramacao}/dados`,
 		{ params },
 	);
 	return data;
 }
 
-export async function publicarProgramacao(id: number): Promise<void> {
-	await api.post(`/programacoes/${id}/publicar`);
+export async function updateProgramacaoDados(
+	cdProgramacao: number,
+	payload: {
+		dados: Array<{
+			periodo: number;
+			geracaoMW?: number;
+			vazaoVertida?: number;
+			vazaoIncremental?: number;
+		}>;
+		dtAlteracao?: string;
+	},
+): Promise<{ cdProgramacao: number; situacao: string; mensagem: string }> {
+	const { data } = await api.put<{
+		cdProgramacao: number;
+		situacao: string;
+		mensagem: string;
+	}>(`/programacoes/${cdProgramacao}/dados`, payload);
+	return data;
+}
+
+export async function publicarProgramacao(cdProgramacao: number): Promise<void> {
+	await api.post(`/programacoes/${cdProgramacao}/publicar`);
 }
 
 // ─── Usinas ──────────────────────────────────────────────────────────────────
@@ -140,6 +162,18 @@ export async function getDashboard(
 ): Promise<DashboardAgregado> {
 	const { data } = await api.get<DashboardAgregado>(
 		`/dashboard/${cdUsina}/${dtProgramacao}`,
+	);
+	return data;
+}
+
+// ─── Cálculo Hidraulico ─────────────────────────────────────────────────────
+
+export async function calcularHidraulico(
+	payload: CalcularHidraulicoRequest,
+): Promise<CalcularHidraulicoResponse> {
+	const { data } = await api.post<CalcularHidraulicoResponse>(
+		"/calculo/hidraulico",
+		payload,
 	);
 	return data;
 }

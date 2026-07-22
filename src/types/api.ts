@@ -79,7 +79,34 @@ export interface DadosPainelResponse {
 	eixoNivelRes?: number[];
 	eixoDispGeracao?: number[];
 	alertasRestricoesPainel?: AlertasRestricoesPainel;
+	nsPainel?: boolean;
 	onsPainel?: boolean;
+}
+
+export interface DadoProgramacao {
+	periodo: number;
+	geracaoMW: number;
+	vazaoVertida: number;
+	vazaoIncremental: number;
+	nivelReservatorio: number;
+	volumeTotal: number;
+	vazaoTurbinada: number;
+	vazaoDefluente: number;
+	vazaoAfluente: number;
+	dadosVerificados: boolean;
+	geracaoMWOns?: number;
+	vazaoDefluenteOns?: number;
+	vazaoAfluenteOns?: number;
+	vazaoTurbinadaOns?: number;
+	volumeTotalOns?: number;
+	nivelReservatorioOns?: number;
+	vazaoIncrementalPrev?: number;
+	incrementalManual?: boolean;
+	vazaoVaoLivre?: number;
+	vazaoVaoLivreCalc?: number;
+	vaoLivreManual?: boolean;
+	disponivel?: number;
+	geracaoManual?: boolean;
 }
 
 export interface ProgramacaoDados {
@@ -87,16 +114,7 @@ export interface ProgramacaoDados {
 	cdUsina: string;
 	dtProgramacao: string;
 	dados: DadoProgramacao[];
-}
-
-export interface DadoProgramacao {
-	hora: number;
-	vazaoTurbinada: number;
-	vazaoDefluente: number;
-	vazaoAfluente: number;
-	nivelReservatorio: number;
-	volume: number;
-	geracao: number;
+	dtAlteracao?: string;
 }
 
 export interface RestricaoUsina {
@@ -140,4 +158,43 @@ export interface DashboardAgregado {
 	restricoes: RestricaoUsina[];
 	usina: UsinaResumo;
 	produtibilidade: Produtibilidade | null;
+}
+
+// ─── Cálculo Hidraulico Types ─────────────────────────────────────────────
+
+export interface CurvaCotaVolumeItem {
+	cota: number;
+	volume: number;
+}
+
+export interface CalcularHidraulicoPeriodoRequest {
+	periodo: number;
+	geracaoMW: number;
+	vazaoVertida: number;
+	vazaoIncremental: number;
+	vazoesMontantes?: number[];
+}
+
+export interface CalcularHidraulicoRequest {
+	cdUsina: string;
+	coefConvMin: number;
+	volumeInicialHm3: number;
+	curvaCotaVolume: CurvaCotaVolumeItem[];
+	periodos: CalcularHidraulicoPeriodoRequest[];
+}
+
+export interface CalcularHidraulicoPeriodoResponse {
+	periodo: number;
+	vazaoTurbinada: number;
+	vazaoDefluente: number;
+	vazaoAfluente: number;
+	nivelReservatorio: number;
+	volumeTotalHm3: number;
+	disponivel: number;
+}
+
+export interface CalcularHidraulicoResponse {
+	cdUsina: string;
+	periodos: CalcularHidraulicoPeriodoResponse[];
+	alertas: AlertaRestricaoItem[];
 }

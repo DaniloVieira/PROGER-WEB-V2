@@ -30,5 +30,6 @@ export const config = {
 		"/dashboard",
 		"/configuracoes",
 		"/programacao/:path*",
+		"/p/:path*",
 	],
 };

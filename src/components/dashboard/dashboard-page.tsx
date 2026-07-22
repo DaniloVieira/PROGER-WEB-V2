@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { useQuery, useQueries } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 import { listarUsinas, getDadosPainel } from "@/services/api";
 import { useTabStore } from "@/stores/tabs";
 import { ProgerSkeleton } from "@/components/proger/proger-skeleton";
@@ -47,6 +48,7 @@ function mapearHistoricoParaChart(
 
 export function DashboardPage() {
 	const { addTab } = useTabStore();
+	const router = useRouter();
 	const [date, setDate] = useState(tomorrowISO());
 	const [confirmAction, setConfirmAction] = useState<"ons" | "publicar" | null>(
 		null,
@@ -190,13 +192,14 @@ export function DashboardPage() {
 								eixoDispGeracao={item.eixoDispGeracao}
 								alertasRestricoesPainel={item.alertasRestricoesPainel}
 								onsPainel={item.onsPainel}
-								onUsinaClick={(u) =>
+								onUsinaClick={(u) => {
 									addTab({
-										id: `usina-${u.cdUsina}`,
+										id: u.cdUsina,
 										title: u.cdUsina,
 										path: `/programacao/${u.cdUsina}`,
-									})
-								}
+									});
+									router.push(`/programacao/${u.cdUsina}`);
+								}}
 							/>
 						</div>
 					))

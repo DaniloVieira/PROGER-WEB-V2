@@ -537,33 +537,33 @@ export function ProgerChartCard({
 							/>
 							{hasMontante1 && (
 								<Bar
-									yAxisId="left"
-									dataKey="geracaoMontante1"
-									barSize={10}
-									fill={
-										hasMontante2
-											? ColorsDefault.geracaoMontante
-											: ColorsDefault.geracaoMontante2
-									}
-									stackId="stack01"
-									fillOpacity={0.4}
-									minPointSize={10}
-									isAnimationActive={false}
-									activeDot={false}
-								/>
+  yAxisId="left"
+  									dataKey="geracaoMontante1"
+  									barSize={10}
+  									fill={
+  										hasMontante2
+  											? ColorsDefault.geracaoMontante
+  											: ColorsDefault.geracaoMontante2
+  									}
+  									stackId="stack01"
+  									fillOpacity={0.4}
+  									minPointSize={10}
+  									isAnimationActive={false}
+  
+/>
 							)}
 							{hasMontante2 && (
 								<Bar
-									yAxisId="left"
-									dataKey="geracaoMontante2"
-									stackId="stack01"
-									barSize={10}
-									fill={ColorsDefault.geracaoMontante2}
-									fillOpacity={0.4}
-									minPointSize={10}
-									isAnimationActive={false}
-									activeDot={false}
-								/>
+  yAxisId="left"
+  									dataKey="geracaoMontante2"
+  									stackId="stack01"
+  									barSize={10}
+  									fill={ColorsDefault.geracaoMontante2}
+  									fillOpacity={0.4}
+  									minPointSize={10}
+  									isAnimationActive={false}
+  
+/>
 							)}
 							<Line
 								yAxisId="left"
@@ -598,15 +598,15 @@ export function ProgerChartCard({
 								name="Nível do Reservatório [m]"
 							/>
 							<Area
-								yAxisId="dadoVerificado"
-								type="monotone"
-								dataKey="dadosVerificados"
-								fill={ColorsDefault.dadosVerificados}
-								stroke="#505050"
-								strokeOpacity={0.1}
-								isAnimationActive={false}
-								activeDot={false}
-							/>
+  yAxisId="dadoVerificado"
+  								type="monotone"
+  								dataKey="dadosVerificados"
+  								fill={ColorsDefault.dadosVerificados}
+  								stroke="#505050"
+  								strokeOpacity={0.1}
+  								isAnimationActive={false}
+  
+/>
 						</ComposedChart>
 					</ResponsiveContainer>
 				</div>
@@ -655,14 +655,14 @@ export function ProgerChartCard({
 								/>
 							)}
 							<Bar
-								yAxisId="left"
-								dataKey="geracaoRef"
-								barSize={10}
-								fill={ColorsDefault.geracaoMwRef}
-								minPointSize={10}
-								isAnimationActive={false}
-								activeDot={false}
-							/>
+  yAxisId="left"
+  								dataKey="geracaoRef"
+  								barSize={10}
+  								fill={ColorsDefault.geracaoMwRef}
+  								minPointSize={10}
+  								isAnimationActive={false}
+  
+/>
 							<Line
 								yAxisId="left"
 								type="monotone"
@@ -674,14 +674,14 @@ export function ProgerChartCard({
 								activeDot={false}
 							/>
 							<Area
-								yAxisId="dadoVerificado"
-								type="monotone"
-								dataKey="dadosVerificados"
-								fill={ColorsDefault.dadosVerificados}
-								stroke="#505050"
-								isAnimationActive={false}
-								activeDot={false}
-							/>
+  yAxisId="dadoVerificado"
+  								type="monotone"
+  								dataKey="dadosVerificados"
+  								fill={ColorsDefault.dadosVerificados}
+  								stroke="#505050"
+  								isAnimationActive={false}
+  
+/>
 						</ComposedChart>
 					</ResponsiveContainer>
 				</div>
