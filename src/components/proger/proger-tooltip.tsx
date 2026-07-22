@@ -90,10 +90,7 @@ export function ProgerTooltip({
 			</div>
 			{isVisible &&
 				createPortal(
-					<div
-						style={tooltipStyle}
-						role="tooltip"
-					>
+					<div style={tooltipStyle} role="tooltip">
 						{content}
 					</div>,
 					document.body,
