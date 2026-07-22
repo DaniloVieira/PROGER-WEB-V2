@@ -108,8 +108,7 @@ export function TabShell({ children }: { children: React.ReactNode }) {
 	);
 	const hasRestored = useRef(false);
 
-	// 1. Restore tab state from URL on mount; if direct link to /programacao/[cdUsina],
-	// auto-open that usina as a tab.
+	// 1. Restore tab state from URL on mount only.
 	useEffect(() => {
 		if (hasRestored.current) return;
 		hasRestored.current = true;
@@ -120,27 +119,53 @@ export function TabShell({ children }: { children: React.ReactNode }) {
 				tabs: urlState.tabs,
 				activeTabId: urlState.activeTabId,
 			});
-			return;
 		}
+	}, [getTabsFromUrl]);
 
+	// 2. Detect navigation to /programacao/:cdUsina and auto-open/activate tab
+	useEffect(() => {
 		const match = pathname.match(/^\/programacao\/([^/]+)$/);
-		if (match) {
-			const cdUsina = match[1];
+		if (!match) return;
+
+		const cdUsina = match[1];
+		const state = useTabStore.getState();
+		const exists = state.tabs.find((t) => t.id === cdUsina);
+		if (!exists) {
+			state.addTab({
+				id: cdUsina,
+				title: cdUsina,
+				path: `/programacao/${cdUsina}`,
+			});
+		} else if (state.activeTabId !== cdUsina) {
+			state.setActiveTab(cdUsina);
+		}
+	}, [pathname, addTab, setActiveTab]);
+
+	// 3. Detect navigation to /dashboard or /configuracoes and activate corresponding tab
+	useEffect(() => {
+		if (pathname === "/dashboard") {
 			const state = useTabStore.getState();
-			const exists = state.tabs.find((t) => t.id === cdUsina);
-			if (!exists) {
-				state.addTab({
-					id: cdUsina,
-					title: cdUsina,
-					path: `/programacao/${cdUsina}`,
-				});
-			} else if (state.activeTabId !== cdUsina) {
-				state.setActiveTab(cdUsina);
+			if (state.activeTabId !== "dashboard") {
+				state.setActiveTab("dashboard");
+			}
+		} else if (pathname === "/configuracoes") {
+			const state = useTabStore.getState();
+			if (state.activeTabId !== "configuracoes") {
+				const exists = state.tabs.find((t) => t.id === "configuracoes");
+				if (!exists) {
+					state.addTab({
+						id: "configuracoes",
+						title: "⚙️ Configurações",
+						path: "/configuracoes",
+					});
+				} else {
+					state.setActiveTab("configuracoes");
+				}
 			}
 		}
-	}, [pathname, getTabsFromUrl, addTab, setActiveTab]);
+	}, [pathname, addTab, setActiveTab]);
 
-	// 2. Sync tab state to URL whenever tabs or active tab change.
+	// 4. Sync tab state to URL whenever tabs or active tab change.
 	useEffect(() => {
 		useTabStore.getState().syncToUrl();
 	}, [tabs, activeTabId]);
